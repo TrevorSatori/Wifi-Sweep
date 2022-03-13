@@ -1,5 +1,7 @@
 # WifiSweep
-Automated capturing of WPA & WPA2 password Hashes using hashcat & hcxdumptool.
+Automated capturing & sorting of WPA & WPA2 password Hashes using hashcat & hcxdumptool.
+
+Automatically creates file with wifi name & captured hash of matching mac addresses.
 
 to delete files in terminal -> sudo rm -R WifiSweep/session name
 
