@@ -88,6 +88,7 @@ def myNIC():
     if len(network_controllers) == 0:
         # If no networks interface controllers connected to your computer the program will exit.
         print('Please connect a network interface controller and try again!')
+        networking_On()
         exit()
 
     while True:
@@ -106,7 +107,6 @@ def myNIC():
     NIC = network_controllers[int(controller_choice)]
 
 def captureData():
-    ctime = str(time.time())
     filename = 'dumpfile.pcapng'
     outfile = os.path.join(os.getcwd(), 'wifi-sweep', session, filename)
     try:
