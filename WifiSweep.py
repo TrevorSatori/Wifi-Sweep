@@ -13,7 +13,7 @@ DO NOT USE ON PEOPLE YOU DON'T HAVE PERMISSION FOR.
 '''
 
 # Card to be monitor
-wlan_code = re.compile('Interface (wlan[0-9]+)')
+wlan_code = re.compile('Interface (wlan[0-9]+|wlp3s[0-9]+)')
 
 
 def logo():

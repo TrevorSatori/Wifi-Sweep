@@ -7,6 +7,34 @@ to delete files in terminal -> sudo rm -R WifiSweep/session name
 
 Make sure your wifi adapter supports monitor mode. 
 
+# Requirements
+## HcxTools
+
+Debian-based Distributions
+`sudo apt install hcxtools`
+
+Arch-based Distributions
+`sudo pacman -S hcxtools`
+
+## NetTools
+
+Debian-based Distributions
+`sudo apt install net-tools`
+
+Arch-based Distributions
+`sudo pacman -S net-tools`
+
+## TShark
+
+Debian-based Distributions
+`sudo apt install tshark`
+
+Arch-based Distributions
+`sudo pacman -S wireshark-cli`
+
+## HashCat
+[HashCat page](https://hashcat.net/hashcat/)
+
 # For wordlist cracking
 hashcat -m 22000 -o password.txt YOURFILENAMEHERE.hc22000 /usr/share/wordlists/rockyou.txt
 
