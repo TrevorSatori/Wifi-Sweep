@@ -1,9 +1,7 @@
-import re
 import os
 import csv
 import subprocess
 import time
-import fileinput
 import numpy as np
 
 
@@ -11,9 +9,6 @@ import numpy as np
 FOR EDUCATIONAL PURPOSES ONLY. 
 DO NOT USE ON PEOPLE YOU DON'T HAVE PERMISSION FOR.
 '''
-
-# Card to be monitor
-wlan_code = re.compile('Interface (wlan[0-9]+|wlp3s[0-9]+)')
 
 
 def logo():
@@ -54,9 +49,10 @@ def new_session():
 
 # find Network Interface Cards
 def find_nic():
-    #capture output and decode to readable format
-    result = subprocess.run(['iw', 'dev'], capture_output=True).stdout.decode()
-    nics = wlan_code.findall(result)
+    # capture output and decode to readable format
+    ps = subprocess.Popen(('iw', 'dev'), stdout=subprocess.PIPE)
+    nics = subprocess.check_output(('awk', '$1=="Interface"{print $2}'), stdin=ps.stdout).decode("utf-8").strip()\
+        .split("\n")
     return nics
 
 
@@ -196,7 +192,7 @@ def quit():
     # Because we are running with sudo, we must change file permissions so we can use later without sudo. 
 
 
-    
+
 
 if __name__ == '__main__':
     sudo_check()
@@ -208,5 +204,5 @@ if __name__ == '__main__':
     captureData()
     matchUP()
     quit()
-    
-    
+
+
